@@ -108,5 +108,14 @@ describe('CustomerForm', () => {
     itSubmitsExistingValue('lastName', 'value');
     itSubmitsNewValue('lastName', 'newValue');
   });
+
+  describe('phone number field', () => {
+    itRendersAsTextBox('phoneNumber');
+    itIncludesExistingValue('phoneNumber')
+    itRendersALabel('phoneNumber', 'Phone number');
+    itAssignsAnIdThatMatchesTheLabelId('phoneNumber')
+    itSubmitsExistingValue('phoneNumber', '12345');
+    itSubmitsNewValue('phoneNumber', '6789');
+  });
 });
 

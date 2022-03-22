@@ -1,8 +1,8 @@
 import React, {useState} from "react";
 
-export const CustomerForm = ({firstName, lastName, onSubmit}) => {
+export const CustomerForm = ({firstName, lastName, phoneNumber, onSubmit}) => {
 
-  const [customer, setCustomer] = useState({firstName, lastName});
+  const [customer, setCustomer] = useState({firstName, lastName, phoneNumber});
 
   const handleChangeFirstName = ({target}) =>
     setCustomer(customer => ({
@@ -16,7 +16,15 @@ export const CustomerForm = ({firstName, lastName, onSubmit}) => {
       lastName: target.value
     }));
 
-  return <form id="customer" onSubmit={() => onSubmit(customer)}>
+  const handleChangePhoneNumber = ({target}) => {
+    setCustomer(customer => ({
+      ...customer,
+        phoneNumber: target.value
+    }));
+  }
+
+  return (
+    <form id="customer" onSubmit={() => onSubmit(customer)}>
     <label htmlFor="firstName">First name</label>
     <input
       type="text"
@@ -33,5 +41,14 @@ export const CustomerForm = ({firstName, lastName, onSubmit}) => {
       value={lastName}
       onChange={handleChangeLastName}
     />
-  </form>;
+    <label htmlFor="phoneNumber">Phone number</label>
+    <input
+      type="string"
+      name="phoneNumber"
+      id="phoneNumber"
+      value={phoneNumber}
+      onChange={handleChangePhoneNumber}
+    />
+  </form>
+  );
 };
