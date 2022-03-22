@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import styles from "./styles.css"
 
 export const CustomerForm = ({firstName, lastName, phoneNumber, onSubmit}) => {
 
@@ -36,6 +37,7 @@ export const CustomerForm = ({firstName, lastName, phoneNumber, onSubmit}) => {
       value={phoneNumber}
       onChange={handleChange}
     />
+      <input type="submit" value="Add" />
   </form>
   );
 };
