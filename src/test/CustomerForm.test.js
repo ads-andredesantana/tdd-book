@@ -99,5 +99,14 @@ describe('CustomerForm', () => {
     itSubmitsExistingValue('firstName', 'value');
     itSubmitsNewValue('firstName', 'newValue');
   });
+
+  describe('last name field', () => {
+    itRendersAsTextBox('lastName');
+    itIncludesExistingValue('lastName')
+    itRendersALabel('lastName', 'Last name');
+    itAssignsAnIdThatMatchesTheLabelId('lastName')
+    itSubmitsExistingValue('lastName', 'value');
+    itSubmitsNewValue('lastName', 'newValue');
+  });
 });
 
