@@ -12,7 +12,7 @@ describe('CustomerForm', () => {
   const labelFor = formElement =>
     container.querySelector(`label[for="${formElement}"]`);
 
-  const firstNameField = () => form('customer').elements.firstName
+  const firstNameField = () => form('customer').elements.firstName;
 
   beforeEach(() => {
     ({ render, container } = createContainer());
@@ -36,7 +36,6 @@ describe('CustomerForm', () => {
 
   it('includes the existing value for the first name', () => {
     render(<CustomerForm firstName='Ashley' />);
-    const field = form('customer').elements.firstName;
     expect(firstNameField().value).toEqual('Ashley');
   })
 

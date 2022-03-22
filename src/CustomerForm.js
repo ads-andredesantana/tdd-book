@@ -1,11 +1,10 @@
 import React, {useState} from "react";
 
+export const CustomerForm = ({firstName, onSubmit}) => {
 
-export const CustomerForm = ({ firstName, onSubmit }) => {
+  const [customer, setCustomer] = useState({firstName});
 
-  const [ customer, setCustomer ] = useState({ firstName });
-
-  const handleChangeFirstName = ({ target }) =>
+  const handleChangeFirstName = ({target}) =>
     setCustomer(customer => ({
       ...customer,
       firstName: target.value
