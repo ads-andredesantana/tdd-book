@@ -4,24 +4,11 @@ export const CustomerForm = ({firstName, lastName, phoneNumber, onSubmit}) => {
 
   const [customer, setCustomer] = useState({firstName, lastName, phoneNumber});
 
-  const handleChangeFirstName = ({target}) =>
+  const handleChange = ({target}) =>
     setCustomer(customer => ({
       ...customer,
-      firstName: target.value
+      [target.name]: target.value
     }));
-
-  const handleChangeLastName = ({target}) =>
-    setCustomer(customer => ({
-      ...customer,
-      lastName: target.value
-    }));
-
-  const handleChangePhoneNumber = ({target}) => {
-    setCustomer(customer => ({
-      ...customer,
-        phoneNumber: target.value
-    }));
-  }
 
   return (
     <form id="customer" onSubmit={() => onSubmit(customer)}>
@@ -31,7 +18,7 @@ export const CustomerForm = ({firstName, lastName, phoneNumber, onSubmit}) => {
       name="firstName"
       id="firstName"
       value={firstName}
-      onChange={handleChangeFirstName}
+      onChange={handleChange}
     />
     <label htmlFor="lastName">Last name</label>
     <input
@@ -39,7 +26,7 @@ export const CustomerForm = ({firstName, lastName, phoneNumber, onSubmit}) => {
       name="lastName"
       id="lastName"
       value={lastName}
-      onChange={handleChangeLastName}
+      onChange={handleChange}
     />
     <label htmlFor="phoneNumber">Phone number</label>
     <input
@@ -47,7 +34,7 @@ export const CustomerForm = ({firstName, lastName, phoneNumber, onSubmit}) => {
       name="phoneNumber"
       id="phoneNumber"
       value={phoneNumber}
-      onChange={handleChangePhoneNumber}
+      onChange={handleChange}
     />
   </form>
   );
